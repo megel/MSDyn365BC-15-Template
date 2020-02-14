@@ -1,0 +1,35 @@
+name: $(AppVersion)
+
+trigger:
+  branches:
+    include:
+    - master
+    - release/*
+  paths:
+    include:
+    - app/*
+    - test/*
+
+variables:
+  # Add Linked Variable Group here:
+  #- group:    'Group Name'
+  
+  - template: variables.version.yaml       # Version Variables            (Overrides are possible)
+  
+  # Add specific Variables here:
+  #- name:     "<name>"
+  #  value:    "<value"  
+  
+##################################################################
+# Add Your DevOps Template here
+# ----------------------------------------------------------------
+# Examples:
+# - ALOps (Waldo):  https://github.com/HodorNV/ALOps/tree/master/Examples
+# - Freddy:         https://dev.azure.com/businesscentralapps/HelloWorld/_git/HelloWorld
+##################################################################
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: echo created $(AppVersion)
+  displayName: 'CI Build'

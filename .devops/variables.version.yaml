@@ -1,0 +1,21 @@
+#########################################################################################
+# Variables to Override:
+# - Major ... 1    (Major Version)
+# - Minor ... 0    (Minor Version)
+# - Build ... 0    (Build Version)
+#########################################################################################
+variables:
+  # Automatic Build Artifact Versioning
+  - name:  'Version.Major'
+    value: $[ coalesce(variables['Major'], '1') ]
+  - name:  'Version.Minor'
+    value: $[ coalesce(variables['Minor'], '0') ]
+  # auto-increment based on: [major].[minor] (variable 'Build' can overrule auto-increment)
+  - name:  'Version.Build'
+    value: $[ coalesce(variables['Build'], counter(format('{0}.{1}', variables['Version.Major'], variables['Version.Minor']), 0)) ]
+  # by default 0 (auto-increment based on: [major].[minor].[build])
+  - name:  'Version.Revision'
+    value: $[ counter(format('{0}.{1}.{2}', variables['Version.Major'], variables['Version.Minor'], variables['Version.Build']), 0) ]
+  # App-Version: [Major].[Minor].[Build].[Revision]
+  - name:  'AppVersion'
+    value: $[ format('{0}.{1}.{2}.{3}', variables['Version.Major'], variables['Version.Minor'], variables['Version.Build'], variables['Version.Revision']) ]

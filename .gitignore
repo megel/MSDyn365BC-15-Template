@@ -1,0 +1,51 @@
+# The tools folder
+.tools
+
+# App
+App/.vscode
+!App/.vscode/settings.json
+# Symbols folder
+App/.alpackages/
+App/.alcache/
+App/.altemplates/
+# Project Output
+App/*.app
+
+# Test App
+Test/.vscode/*
+!Test/.vscode/settings.json
+# Symbols folder
+Test/.alpackages/
+Test/.alcache/
+Test/.altemplates/
+# Project Output
+Test/*.app
+
+# Created by https://www.gitignore.io/api/al,windows
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.gitignore.io/api/al,windows
